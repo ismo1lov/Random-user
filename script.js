@@ -1,30 +1,38 @@
 // mode
 
-let light = document.querySelector('.light')
-let dark = document.querySelector('.dark')
-let body = document.querySelector('body')
+document.addEventListener('DOMContentLoaded', () => {
+      const light = document.querySelector('.light');
+      const dark = document.querySelector('.dark');
+      const body = document.body;
 
-light.addEventListener('click', () => {
-    light.classList.toggle('hidden')
-    dark.classList.toggle('hidden')
-    body.classList.toggle('dark-mode')
-    localStorage.setItem('mode', '')
-})
+      const mode = localStorage.getItem('mode');
 
-dark.addEventListener('click', () => {
-    light.classList.toggle('hidden')
-    dark.classList.toggle('hidden')
-    body.classList.toggle('dark-mode')
-    localStorage.setItem('mode', 'dark')
-})
+      if (mode === 'dark') {
+        body.classList.add('dark-mode');
+        light.classList.remove('hidden');
+        dark.classList.add('hidden');
+      } else {
+        light.classList.add('hidden');
+        dark.classList.remove('hidden');
+        body.classList.remove('dark-mode');
+      }
 
-let mode = localStorage.getItem('mode')
+      light.addEventListener('click', () => {
+        light.classList.add('hidden');
+        dark.classList.remove('hidden');
+        body.classList.remove('dark-mode');
+        localStorage.setItem('mode', 'light');
+      });
 
-if (mode) {
-    body.classList.add('dark-mode')
-    light.classList.toggle('hidden')
-    dark.classList.toggle('hidden')
-}
+      dark.addEventListener('click', () => {
+        light.classList.remove('hidden');
+        dark.classList.add('hidden');
+        body.classList.add('dark-mode');
+        localStorage.setItem('mode', 'dark');
+      });
+    });
+
+
 
 // overlay
 
