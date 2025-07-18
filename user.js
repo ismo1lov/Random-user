@@ -38,9 +38,10 @@ input.addEventListener('input', ()=>{
 // delete
 
 document.addEventListener('click', (e)=>{
+
     
-    if(e.target.classList[0] === 'bi'){
-        e.target.parentElement.parentElement.remove()
+    if(e.target.classList[0] === 'x-btn'){
+        e.target.parentElement.remove()
     }
 
     if(!user.children.length){
@@ -62,7 +63,7 @@ function update  (data){
                        <span><i class="bi bi-card-checklist"></i> - ${dob.age} years old</span><br><br>
                        <span><i class="bi bi-geo-alt-fill"></i> - ${location.city}, ${location.country}</span><br><br>
                        <span><i class="bi bi-person-standing"></i> - ${gender}</span><br>
-                       <button class="x-btn"><i class="bi bi-trash-fill"></i></button>
+                       <button class="x-btn">✕</button>
                    </li>
                 `
     });
